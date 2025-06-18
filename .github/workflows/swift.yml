@@ -23,4 +23,4 @@ jobs:
           xcodebuild clean test \
             -project BestWish.xcodeproj \
             -scheme BestWish \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.4'
+            -destination 'platform=iOS Simulator,name=iPhone 14,OS=15.4'
