@@ -8,17 +8,14 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest  # 최신 macOS 러너 사용
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Xcode 16.4
-        uses: actions/setup-xcode@v2 # ✨ 이곳을 v2로 변경합니다!
+        # ✨ 여기를 전체 커밋 SHA로 변경합니다!
+        uses: actions/setup-xcode@4d436a99268383c27076a5e11b15132227d86f78 
         with:
-          # 로컬 Xcode 버전인 16.4를 정확히 지정
-          # GitHub Actions에서 사용 가능한 Xcode 버전 목록은
-          # setup-xcode 액션의 README 파일을 참고하세요:
-          # https://github.com/actions/setup-xcode/blob/main/README.md#supported-xcode-versions
           xcode-version: '16.4' 
 
       - name: Verify Xcode version
