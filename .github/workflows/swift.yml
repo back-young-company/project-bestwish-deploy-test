@@ -1,27 +1,54 @@
-name: iOS CI
+name: iOS CI # 워크플로우의 이름
 
 on:
   push:
-    branches: [develop]
+    branches: [develop] # develop 브랜치에 푸시될 때 실행
   pull_request:
-    branches: [develop]
+    branches: [develop] # develop 브랜치로 풀 리퀘스트가 열릴 때 실행
 
 jobs:
   build:
-    runs-on: macos-14
+    runs-on: macos-14 # macOS 14 러너는 Xcode 16.2 및 최신 iOS 시뮬레이터 런타임을 지원합니다.
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository # 코드 레포지토리 체크아웃
         uses: actions/checkout@v4
 
-      - name: Use Xcode 16.2
-        uses: maxim-lobanov/setup-xcode@v1
+      - name: Use Xcode 16.2 # maxim-lobanov/setup-xcode 액션을 사용하여 Xcode 16.2를 설정합니다.
+        uses: maxim-lobanov/setup-xcode@v1 # 이 액션이 Xcode 16.2를 올바르게 설치하도록 합니다.
         with:
           xcode-version: '16.2'
 
-      - name: Run Tests
+      # ✨ 추가: Ruby 환경 설정 및 Gem 의존성 설치 (프로젝트에 Ruby Gem이 필요한 경우)
+      # Fastlane, CocoaPods (Bundler 사용 시) 등에 필요합니다.
+      # 이 스텝이 없으면 'bundle install' 또는 'gem' 명령이 실패할 수 있습니다.
+      - name: Set up Ruby and Install Gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.1 # 프로젝트의 Ruby 버전에 맞게 조정하세요 (예: '2.7', '3.0', '3.2' 등)
+          bundler-cache: true # Gemfile.lock이 있으면 의존성을 자동으로 설치하고 캐싱합니다.
+
+      # ✨ 추가: xcbeautify 설치 (테스트 결과 포맷팅에 필요)
+      # 이 스텝이 없으면 'xcbeautify' 명령을 찾을 수 없다는 에러가 발생합니다.
+      - name: Install xcbeautify
+        run: brew install xcbeautify || true # 이미 설치되어 있다면 오류 없이 넘어갑니다.
+
+      - name: Run Tests # 유닛 테스트 실행
         run: |
           xcodebuild clean test \
             -project BestWish.xcodeproj \
             -scheme BestWish \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.2'
+            # ✨ 중요 수정: 시뮬레이터와 OS 버전을 러너에서 사용 가능한 것으로 변경합니다.
+            # 이전 로그에서 iPhone 14, iOS 16.2는 사용 불가능했습니다.
+            # 아래 예시 중 하나를 선택하거나, 이전 로그의 'Available destinations' 목록을 참고하여
+            # 프로젝트에 적합한 최신 iPhone 시뮬레이터와 OS 조합을 선택하세요.
+            #
+            # 옵션 1: 최신 안정화 iOS 버전 (iOS 17.5)의 iPhone 15 Pro Max
+            -destination 'platform=iOS Simulator,name=iPhone 15 Pro Max,OS=17.5' \
+            #
+            # 옵션 2: 더 최신 iOS 버전 (현재 베타 또는 개발 중인 iOS 18.2)의 iPhone 16
+            # -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.2' \
+            #
+            # 옵션 3: 다른 iOS 17.x 버전의 iPhone 15
+            # -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.4' \
+            | xcbeautify # xcbeautify 명령이 설치되어 있어야 이 부분이 제대로 작동합니다.
