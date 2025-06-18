@@ -11,14 +11,14 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      # - name: Checkout repository
-      #   uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      # - name: Use Xcode 16.2
-      #   uses: maxim-lobanov/setup-xcode@v1
-      #   with:
-      #     xcode-version: '16.2'
-      - uses: actions/checkout@v2
+      - name: Use Xcode 16.2
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '16.2'
+      # - uses: actions/checkout@v2
       - name: Run Tests
         run: |
          xcodebuild build \
