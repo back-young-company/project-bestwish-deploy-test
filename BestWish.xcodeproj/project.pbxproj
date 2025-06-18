@@ -461,6 +461,8 @@
 /* Begin XCBuildConfiguration section */
 		14B8B6452DF6861400B7F5F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = CBD6BA132DEF1B39003242CA /* BestWish */;
+			baseConfigurationReferenceRelativePath = Config.xcconfig;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BestWishShareExtension/BestWishShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
