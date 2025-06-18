@@ -11,16 +11,28 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest  # 최신 macOS 러너 사용
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Select latest available Xcode
-        run: sudo xcode-select -s "/Applications/Xcode.app"
+      - name: Select Xcode 16.4 (or latest stable)
+        run: |
+          # GitHub Actions의 macos-latest에는 여러 Xcode 버전이 있을 수 있음
+          # Xcode 16.4를 명시적으로 선택하거나, 가장 최신 버전을 선택하는 스크립트
+          # GitHub Actions 환경의 Xcode 경로를 확인해야 함
+          # 보통 /Applications/Xcode.app 이 최신버전이라면 이대로 둬도 됨
+          # 만약 특정 버전이 있다면:
+          # sudo xcode-select -s "/Applications/Xcode_16.4.app" # 예시 (실제 경로 확인 필요)
+          sudo xcode-select -s "/Applications/Xcode.app" # 현재 설정 유지 또는 확인
+
+      - name: Verify Xcode version
+        run: |
+          xcodebuild -version
+          xcrun swift -version # Swift 컴파일러 버전도 확인
 
       - name: Run tests
         run: |
           xcodebuild clean test \
             -project BestWish.xcodeproj \
             -scheme BestWish \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest'
+            -destination 'platform=iOS Simulator,name=iPhone 14,OS=15.4'
