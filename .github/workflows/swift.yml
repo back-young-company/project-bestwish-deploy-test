@@ -11,21 +11,23 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Use Xcode 16.2
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: '16.2'
 
-      - name: Install dependencies
+      - name: Install CocoaPods dependencies
         run: |
-          brew install xcbeautify || true
+          cd BestWish  # Podfile이 있는 디렉토리로 이동
           pod install --repo-update --clean-install
 
-      - name: Build and Test
+      - name: Build and Run Tests
         run: |
-          xcodebuild build \
+          cd BestWish  # xcodeproj/xcworkspace가 있는 디렉토리
+          xcodebuild clean test \
             -workspace BestWish.xcworkspace \
             -scheme BestWish \
             -destination 'platform=iOS Simulator,name=iPhone 14,OS=17.0' \
