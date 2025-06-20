@@ -57,11 +57,11 @@ jobs:
         security set-key-partition-list -S apple-tool:,apple: -s -k "" "$KEYCHAIN"
         
         mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
-        echo ls .github/secrets/*.mobileprovision
-          for PROVISION in ls .github/secrets/*.mobileprovision
-          do
-            UUID=/usr/libexec/PlistBuddy -c 'Print :UUID' /dev/stdin <<< $(security cms -D -i ./$PROVISION)
-          cp "./$PROVISION" "$HOME/Library/MobileDevice/Provisioning Profiles/$UUID.mobileprovision"
+        
+        for PROVISION in $(ls .github/secrets/*.mobileprovision) # 여기를 $(ls ...) 로 변경
+        do
+          UUID=$(/usr/libexec/PlistBuddy -c 'Print :UUID' /dev/stdin <<< $(security cms -D -i "$PROVISION")) # "$PROVISION" 에 따옴표 추가
+          cp "$PROVISION" "$HOME/Library/MobileDevice/Provisioning Profiles/$UUID.mobileprovision" # "$PROVISION" 에 따옴표 추가
         done
     - name: Archive app
       run: |
