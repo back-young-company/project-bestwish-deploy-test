@@ -104,7 +104,7 @@ private extension ShareView {
 extension UIColor {
     convenience init(hex: String, alpha: CGFloat = 1.0) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-        print("dasdasda")
+        print("dasdasㅁㅇㄴㅁㄴㅇda")
         if hexSanitized.hasPrefix("#") {
             hexSanitized.remove(at: hexSanitized.startIndex)
         }
