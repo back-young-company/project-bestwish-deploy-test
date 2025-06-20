@@ -466,9 +466,11 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BestWishShareExtension/BestWishShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3BLN747VAP;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3BLN747VAP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BestWishShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BestWishShareExtension;
@@ -483,6 +485,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baekyeong.BestWish.BestWishShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = BestWish_GittHub_Actions_ShareExtension;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -495,9 +498,11 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BestWishShareExtension/BestWishShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3BLN747VAP;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3BLN747VAP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BestWishShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BestWishShareExtension;
@@ -512,6 +517,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baekyeong.BestWish.BestWishShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = BestWish_GittHub_Actions_ShareExtension;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
