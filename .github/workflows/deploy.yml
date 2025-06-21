@@ -17,8 +17,8 @@ jobs:
       XC_ARCHIVE: ${{ 'BestWish.xcarchive' }}
 
       # certificate 
-      ENCRYPTED_CERT_FILE_PATH: ${{ '.github/secrets/bestwishCertification.p12.gpg' }}
-      DECRYPTED_CERT_FILE_PATH: ${{ '.github/secrets/bestwishCertification.p12' }}
+      ENCRYPTED_CERT_FILE_PATH: ${{ '.github/secrets/BestWish_Certification.p12.gpg' }}
+      DECRYPTED_CERT_FILE_PATH: ${{ '.github/secrets/BestWish_Certification.p12' }}
       CERT_ENCRYPTION_KEY: ${{ secrets.CERTS_ENCRYPTION_PWD }} # gpg로 파일 암호화할 때 사용한 암호
 
       # provisioning
