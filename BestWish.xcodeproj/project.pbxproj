@@ -185,6 +185,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		816600BC2E06A0C7003EA590 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CBD6BA082DEF1B39003242CA = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +199,7 @@
 				CBD6BA2A2DEF1B3B003242CA /* BestWishTests */,
 				CBD6BA342DEF1B3B003242CA /* BestWishUITests */,
 				14B8B63A2DF6861400B7F5F8 /* BestWishShareExtension */,
+				816600BC2E06A0C7003EA590 /* Frameworks */,
 				CBD6BA122DEF1B39003242CA /* Products */,
 			);
 			sourceTree = "<group>";
