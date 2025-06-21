@@ -80,6 +80,7 @@ jobs:
           -destination "generic/platform=iOS" \
           -archivePath "$XC_ARCHIVE" \
           CODE_SIGN_STYLE="Automatic" \
+          -verbose
           # 만약 수동 코드 사인을 사용한다면 아래 두 줄을 추가 (필요에 따라 주석 해제)
           # DEVELOPMENT_TEAM="YOUR_TEAM_ID" \
           # PROVISIONING_PROFILE_SPECIFIER="YOUR_PROVISIONING_PROFILE_NAME" \
