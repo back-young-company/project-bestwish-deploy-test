@@ -12,11 +12,11 @@
 	<dict>
 		<key>com.baekyeong.BestWish</key>
 		<string>BestWish GitHub Actions</string>
-		<key>com.baekyeong.BestWish.BestWishShareExtension</key>
-		<string>BestWish_GittHub_Actions_ShareExtension</string>
+		<key>com.baekyeong.BestWishShareExtension</key>
+		<string>BestWish GitHub Actions ShareExtension</string>
 	</dict>
 	<key>signingCertificate</key>
-	<string>Apple Distribution</string>
+	<string>D6D6030AB0C2EB68A5DAAE699EE0561FA2A4C6EB</string>
 	<key>signingStyle</key>
 	<string>manual</string>
 	<key>stripSwiftSymbols</key>
