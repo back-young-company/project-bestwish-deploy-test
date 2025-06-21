@@ -74,9 +74,9 @@ jobs:
     - name: Archive app
       run: |
         xcodebuild clean archive -project BestWish.xcodeproj \
-          -scheme "${{ env.XC_SCHEME }}" \ # $XC_SCHEME 대신 ${{ env.XC_SCHEME }}
+          -scheme "${{ env.XC_SCHEME }}" \
           -destination "generic/platform=iOS" \
-          -archivePath "${{ env.XC_ARCHIVE }}" \ # $XC_ARCHIVE 대신 ${{ env.XC_ARCHIVE }}
+          -archivePath "${{ env.XC_ARCHIVE }}" \
           -verbose \
           CODE_SIGN_IDENTITY="${{ env.IOS_APP_CODE_SIGN_IDENTITY }}" \
           PROVISIONING_PROFILE_SPECIFIER="${{ env.IOS_APP_PROVISIONING_PROFILE_SPECIFIER }}" \
