@@ -73,7 +73,7 @@ jobs:
         done
     - name: Archive app
       run: |
-        xcodebuild clean archive -workspace "XC_PROJECT" \ # 또는 -project "$XC_PROJECT"
+        xcodebuild clean archive -project BestWish.xcodeproj \
         -scheme "$XC_SCHEME" \
         -destination "generic/platform=iOS" \
         -archivePath "$XC_ARCHIVE" \
