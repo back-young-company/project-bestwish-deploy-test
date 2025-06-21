@@ -13,9 +13,8 @@
 		14B8B6712DF691B300B7F5F8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 14B8B6702DF691B300B7F5F8 /* SnapKit */; };
 		14B8B6732DF691BC00B7F5F8 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 14B8B6722DF691BC00B7F5F8 /* Then */; };
 		14B8B6792DF6C57000B7F5F8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 14B8B6782DF6C57000B7F5F8 /* RxCocoa */; };
-		81276F522E0015FC0032B85D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 81276F512E0015FC0032B85D /* IQKeyboardManagerSwift */; };
+		816600BB2E069DF9003EA590 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 816600BA2E069DF9003EA590 /* IQKeyboardManagerSwift */; };
 		81E50BB42DF93B0E005954F4 /* CropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 81E50BB32DF93B0E005954F4 /* CropViewController */; };
-		861BAD572DFD2B960043B83E /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 861BAD562DFD2B960043B83E /* IQKeyboardManagerSwift */; };
 		86F6FD012DF66C8B00CAF678 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 86F6FD002DF66C8B00CAF678 /* Alamofire */; };
 		CB4FBCEE2DF6B66B00149D86 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = CB4FBCED2DF6B66B00149D86 /* RxDataSources */; };
 		CBD6BA6B2DEF363A003242CA /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = CBD6BA6A2DEF363A003242CA /* RxCocoa */; };
@@ -161,12 +160,11 @@
 				81E50BB42DF93B0E005954F4 /* CropViewController in Frameworks */,
 				CBD6BA6D2DEF363A003242CA /* RxRelay in Frameworks */,
 				CBD6BB0B2DEFD165003242CA /* Supabase in Frameworks */,
-				81276F522E0015FC0032B85D /* IQKeyboardManagerSwift in Frameworks */,
+				816600BB2E069DF9003EA590 /* IQKeyboardManagerSwift in Frameworks */,
 				CBD6BA6B2DEF363A003242CA /* RxCocoa in Frameworks */,
 				CB4FBCEE2DF6B66B00149D86 /* RxDataSources in Frameworks */,
 				CBD6BA732DEF3656003242CA /* Then in Frameworks */,
 				CBD6BA762DEF370B003242CA /* Kingfisher in Frameworks */,
-				861BAD572DFD2B960043B83E /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,7 +265,7 @@
 				86F6FD002DF66C8B00CAF678 /* Alamofire */,
 				CB4FBCED2DF6B66B00149D86 /* RxDataSources */,
 				81E50BB32DF93B0E005954F4 /* CropViewController */,
-				81276F512E0015FC0032B85D /* IQKeyboardManagerSwift */,
+				816600BA2E069DF9003EA590 /* IQKeyboardManagerSwift */,
 			);
 			productName = BestWish;
 			productReference = CBD6BA112DEF1B39003242CA /* BestWish.app */;
@@ -364,7 +362,7 @@
 				86F6FCFF2DF66C8B00CAF678 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CB4FBCEC2DF6B66B00149D86 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				81E50BB22DF93B0E005954F4 /* XCRemoteSwiftPackageReference "TOCropViewController" */,
-				81276F502E0015FC0032B85D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				816600B92E069DF9003EA590 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CBD6BA122DEF1B39003242CA /* Products */;
@@ -657,7 +655,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -719,7 +717,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -862,7 +860,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		81276F502E0015FC0032B85D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+		816600B92E069DF9003EA590 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
 			requirement = {
@@ -876,14 +874,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.7.4;
-			};
-		};
-		861BAD552DFD2B960043B83E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.1;
 			};
 		};
 		86F6FCFF2DF66C8B00CAF678 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -970,20 +960,15 @@
 			package = CBD6BA692DEF363A003242CA /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		81276F512E0015FC0032B85D /* IQKeyboardManagerSwift */ = {
+		816600BA2E069DF9003EA590 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 81276F502E0015FC0032B85D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			package = 816600B92E069DF9003EA590 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
 		};
 		81E50BB32DF93B0E005954F4 /* CropViewController */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 81E50BB22DF93B0E005954F4 /* XCRemoteSwiftPackageReference "TOCropViewController" */;
 			productName = CropViewController;
-		};
-		861BAD562DFD2B960043B83E /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 861BAD552DFD2B960043B83E /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
 		};
 		86F6FD002DF66C8B00CAF678 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
