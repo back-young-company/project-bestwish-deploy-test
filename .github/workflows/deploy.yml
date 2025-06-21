@@ -73,19 +73,12 @@ jobs:
         done
     - name: Archive app
       run: |
-        # 참고: SPM을 사용한다면 -project 대신 -workspace를 사용하고, .xcworkspace 파일이름을 정확히 명시하는 것이 좋습니다.
-        # 예시: xcodebuild clean archive -workspace BestWish.xcworkspace -scheme BestWish ...
-        xcodebuild clean archive -project BestWish.xcodeproj \
-          -scheme "$XC_SCHEME" \
-          -destination "generic/platform=iOS" \
-          -archivePath "$XC_ARCHIVE" \
-          CODE_SIGN_STYLE="Automatic" \
-          -verbose
-          # 만약 수동 코드 사인을 사용한다면 아래 두 줄을 추가 (필요에 따라 주석 해제)
-          # DEVELOPMENT_TEAM="YOUR_TEAM_ID" \
-          # PROVISIONING_PROFILE_SPECIFIER="YOUR_PROVISIONING_PROFILE_NAME" \
-          # 또는
-          # PROVISIONING_PROFILE_UUID="YOUR_PROVISIONING_PROFILE_UUID" \
+        xcodebuild clean archive -workspace "$XC_WORKSPACE" \ # 또는 -project "$XC_PROJECT"
+        -scheme "$XC_SCHEME" \
+        -destination "generic/platform=iOS" \
+        -archivePath "$XC_ARCHIVE" \
+        CODE_SIGN_STYLE="Automatic" \
+        -verbose # <--- 이 부분이 있는지, 오타는 없는지 다시 확인
 
     - name: Export app
       run: |
