@@ -74,11 +74,19 @@ jobs:
     - name: Archive app
       run: |
         xcodebuild clean archive -project BestWish.xcodeproj \
-        -scheme "$XC_SCHEME" \
-        -destination "generic/platform=iOS" \
-        -archivePath "$XC_ARCHIVE" \
-        CODE_SIGN_STYLE="Automatic" \
-        -verbose # <--- 이 부분이 있는지, 오타는 없는지 다시 확인
+          -scheme "$XC_SCHEME" \
+          -destination "generic/platform=iOS" \
+          -archivePath "$XC_ARCHIVE" \
+          -verbose \
+          # 코드 사인 정보를 명시적으로 지정
+          # Main App Target
+          CODE_SIGN_IDENTITY="${{ env.IOS_APP_CODE_SIGN_IDENTITY }}" \
+          PROVISIONING_PROFILE_SPECIFIER="${{ env.IOS_APP_PROVISIONING_PROFILE_SPECIFIER }}" \
+          DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM_ID" \
+          # Share Extension Target (BestWishShareExtension은 프로젝트 이름이 'BestWish' 이므로 BestWish.xcodeproj 내부에 있습니다)
+          "BestWishShareExtension_CODE_SIGN_IDENTITY=${{ env.IOS_SHARE_EXTENSION_CODE_SIGN_IDENTITY }}" \
+          "BestWishShareExtension_PROVISIONING_PROFILE_SPECIFIER=${{ env.IOS_SHARE_EXTENSION_PROVISIONING_PROFILE_SPECIFIER }}" \
+          "BestWishShareExtension_DEVELOPMENT_TEAM=$DEVELOPMENT_TEAM_ID"
 
     - name: Export app
       run: |
