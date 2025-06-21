@@ -12,11 +12,11 @@ jobs:
     runs-on: macos-latest
 
     env:
-      XC_WORKSPACE: ${{ 'BestWish.xcodeproj' }}
+      XC_WORKSPACE: ${{ 'BestWish.xcodeproj' }} # 여기서는 .xcodeproj을 사용하고 계시네요. SPM을 사용한다면 .xcworkspace로 변경하는 것이 더 안전합니다. 아래에서 설명.
       XC_SCHEME: ${{ 'BestWish' }}
       XC_ARCHIVE: ${{ 'BestWish.xcarchive' }}
 
-      # certificate 
+      # certificate
       ENCRYPTED_CERT_FILE_PATH: ${{ '.github/secrets/BestWish_Certification.p12.gpg' }}
       DECRYPTED_CERT_FILE_PATH: ${{ '.github/secrets/BestWish_Certification.p12' }}
       CERT_ENCRYPTION_KEY: ${{ secrets.CERTS_ENCRYPTION_PWD }} # gpg로 파일 암호화할 때 사용한 암호
@@ -36,12 +36,20 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Clean Xcode DerivedData and SPM Cache # <--- 이 스텝을 추가합니다!
+      run: |
+        echo "Cleaning Xcode DerivedData..."
+        rm -rf "$HOME/Library/Developer/Xcode/DerivedData"
+        echo "Cleaning Swift Package Manager Cache..."
+        rm -rf "$HOME/Library/Caches/org.swift.swiftpm"
+        echo "Clean up complete."
+
     - name: Use Xcode 16.2
       uses: maxim-lobanov/setup-xcode@v1
       with:
         xcode-version: '16.2'
 
-    - name: Configure Keychain  # 키체인 초기화 - 임시 키체인 생성
+    - name: Configure Keychain # 키체인 초기화 - 임시 키체인 생성
       run: |
         security create-keychain -p "" "$KEYCHAIN"
         security list-keychains -s "$KEYCHAIN"
@@ -55,9 +63,9 @@ jobs:
         gpg -d -o "$DECRYPTED_SHARE_PROVISION_FILE_PATH" --pinentry-mode=loopback --passphrase "$PROVISIONING_ENCRYPTION_KEY" "$ENCRYPTED_SHARE_PROVISION_FILE_PATH"
         security import "$DECRYPTED_CERT_FILE_PATH" -k "$KEYCHAIN" -P "$CERT_EXPORT_KEY" -A
         security set-key-partition-list -S apple-tool:,apple: -s -k "" "$KEYCHAIN"
-        
+
         mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
-        
+
         for PROVISION in $(ls .github/secrets/*.mobileprovision) # 여기를 $(ls ...) 로 변경
         do
           UUID=$(/usr/libexec/PlistBuddy -c 'Print :UUID' /dev/stdin <<< $(security cms -D -i "$PROVISION")) # "$PROVISION" 에 따옴표 추가
@@ -65,11 +73,22 @@ jobs:
         done
     - name: Archive app
       run: |
-        xcodebuild clean archive -project BestWish.xcodeproj
+        xcodebuild clean archive -project BestWish.xcodeproj \
+          -scheme "${{ env.XC_SCHEME }}" \
+          -destination "generic/platform=iOS" \
+          -archivePath "${{ env.XC_ARCHIVE }}" \
+          -verbose \
+          CODE_SIGN_IDENTITY="${{ env.IOS_APP_CODE_SIGN_IDENTITY }}" \
+          PROVISIONING_PROFILE_SPECIFIER="${{ env.IOS_APP_PROVISIONING_PROFILE_SPECIFIER }}" \
+          DEVELOPMENT_TEAM="${{ env.DEVELOPMENT_TEAM_ID }}" \
+          "BestWishShareExtension_CODE_SIGN_IDENTITY=${{ env.IOS_SHARE_EXTENSION_CODE_SIGN_IDENTITY }}" \
+          "BestWishShareExtension_PROVISIONING_PROFILE_SPECIFIER=${{ env.IOS_SHARE_EXTENSION_PROVISIONING_PROFILE_SPECIFIER }}" \
+          "BestWishShareExtension_DEVELOPMENT_TEAM=${{ env.DEVELOPMENT_TEAM_ID }}"
+
     - name: Export app
       run: |
         xcodebuild -exportArchive -archivePath $XC_ARCHIVE -exportOptionsPlist ExportOptions.plist -exportPath . -allowProvisioningUpdates
- 
+
     - name: Upload app to TestFlight
       uses: apple-actions/upload-testflight-build@v1
       with:
