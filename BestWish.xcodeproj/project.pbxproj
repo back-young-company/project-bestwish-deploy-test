@@ -102,6 +102,7 @@
 		81276D6A2E0012610032B85D /* Exceptions for "BestWish" folder in "BestWish" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Config.xcconfig,
 				Resource/Info.plist,
 			);
 			target = CBD6BA102DEF1B39003242CA /* BestWish */;
