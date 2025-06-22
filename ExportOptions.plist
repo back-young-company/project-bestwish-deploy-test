@@ -12,8 +12,8 @@
 	<dict>
 		<key>com.baekyeong.BestWish</key>
 		<string>BestWish GitHub Actions</string>
-		<key>com.baekyeong.BestWishShareExtension</key>
-		<string>BestWish GitHub Actions ShareExtension</string>
+		<key>com.baekyeong.BestWish.BestWishShareExtension</key>
+		<string>BestWish_GitHub_Actions_ShareExtension</string>
 	</dict>
 	<key>signingCertificate</key>
 	<string>D6D6030AB0C2EB68A5DAAE699EE0561FA2A4C6EB</string>
