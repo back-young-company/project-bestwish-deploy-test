@@ -473,11 +473,9 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BestWishShareExtension/BestWishShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 3BLN747VAP;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3BLN747VAP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BestWishShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BestWishShareExtension;
@@ -492,7 +490,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baekyeong.BestWish.BestWishShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = BestWish_GitHub_Actions_ShareExtension;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -502,14 +499,14 @@
 		};
 		14B8B6462DF6861400B7F5F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = CBD6BA132DEF1B39003242CA /* BestWish */;
+			baseConfigurationReferenceRelativePath = ReleaseConfig.xcconfig;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BestWishShareExtension/BestWishShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 3BLN747VAP;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3BLN747VAP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BestWishShareExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = BestWishShareExtension;
@@ -524,7 +521,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baekyeong.BestWish.BestWishShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = BestWish_GitHub_Actions_ShareExtension;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -541,11 +537,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BestWish/BestWish.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 3BLN747VAP;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3BLN747VAP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BestWish/Resource/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 접근 권한에 허용하시겠습니까?";
@@ -562,7 +556,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baekyeong.BestWish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "BestWish GitHub Actions";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -572,17 +565,15 @@
 		CBD6BA3C2DEF1B3B003242CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReferenceAnchor = CBD6BA132DEF1B39003242CA /* BestWish */;
-			baseConfigurationReferenceRelativePath = Config.xcconfig;
+			baseConfigurationReferenceRelativePath = ReleaseConfig.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = BestWish/BestWish.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 3BLN747VAP;
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3BLN747VAP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BestWish/Resource/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 접근 권한에 허용하시겠습니까?";
@@ -599,7 +590,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.baekyeong.BestWish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "BestWish GitHub Actions";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -677,7 +667,7 @@
 		CBD6BA3E2DEF1B3B003242CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReferenceAnchor = CBD6BA132DEF1B39003242CA /* BestWish */;
-			baseConfigurationReferenceRelativePath = Config.xcconfig;
+			baseConfigurationReferenceRelativePath = ReleaseConfig.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -759,7 +749,7 @@
 		CBD6BA412DEF1B3B003242CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReferenceAnchor = CBD6BA132DEF1B39003242CA /* BestWish */;
-			baseConfigurationReferenceRelativePath = Config.xcconfig;
+			baseConfigurationReferenceRelativePath = ReleaseConfig.xcconfig;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -800,7 +790,7 @@
 		CBD6BA442DEF1B3B003242CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReferenceAnchor = CBD6BA132DEF1B39003242CA /* BestWish */;
-			baseConfigurationReferenceRelativePath = Config.xcconfig;
+			baseConfigurationReferenceRelativePath = ReleaseConfig.xcconfig;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
